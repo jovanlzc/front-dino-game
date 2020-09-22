@@ -50,9 +50,10 @@ function handleReset(Dinos) {
     // console.info(chromosomes)
     // Clear rankList
     rankList.splice(0);
-    geneticModel.fit(chromosomes);
-    Dinos.forEach((dino, i) => {
-      dino.model.setChromosome(chromosomes[i]);
+    geneticModel.fit(chromosomes,(data)=>{
+      Dinos.forEach((dino, i) => {
+        dino.model.setChromosome(data[i]);
+      });
     });
   }
 }
